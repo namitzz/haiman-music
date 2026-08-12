@@ -151,14 +151,25 @@ defaults when prompted.
 
 ### GitHub Pages
 
-1. Push the files to a GitHub repository.
-2. Open the repository **Settings**.
-3. Open **Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch** (or a GitHub
-   Actions static workflow, as appropriate).
-5. Select the branch and the **repository root** (the folder containing `index.html`).
+This repo is already prepared for Pages (a `.nojekyll` file is included so the
+files are served exactly as-is). Because it is a static single-file website,
+**no build process is necessary** — use the classic "Deploy from a branch"
+source:
 
-Because this is a static single-file website, **no build process is necessary**.
+1. Open the repository **Settings → Pages**.
+2. Under **Build and deployment → Source**, choose **Deploy from a branch**.
+3. Set **Branch** to `claude/fs-haiman-cinematic-site-hqiwnz` (the repo's current
+   default branch) and the folder to **`/ (root)`**, then click **Save**.
+4. Wait ~1 minute for the first build. The site publishes at:
+
+   **`https://namitzz.github.io/haiman-music/`**
+
+> This one-time toggle can only be done by the repository owner — the GitHub
+> Actions token is not permitted to enable Pages on a repo for the first time.
+> Once Pages is on, every push to the selected branch re-publishes automatically.
+
+All internal asset paths are relative, so the site works correctly under the
+`/haiman-music/` project subpath.
 
 ---
 
