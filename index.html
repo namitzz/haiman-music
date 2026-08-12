@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#07080C">
+
+<!-- ============ SEO ============ -->
+<title>FS HAIMAN — Kashmir / Hip-Hop</title>
+<meta name="description" content="FS HAIMAN — rapper from Kashmir blending English, Urdu and Koshur with modern desi hip-hop.">
+<meta name="author" content="FS HAIMAN">
+
+<!-- ============ OPEN GRAPH ============ -->
+<meta property="og:type" content="music.musician">
+<meta property="og:title" content="FS HAIMAN — Kashmir / Hip-Hop">
+<meta property="og:description" content="FS HAIMAN — rapper from Kashmir blending English, Urdu and Koshur with modern desi hip-hop.">
+<meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/63/cc/84/63cc8493-f2ca-8b63-3a4b-b93f06fef3b7/artwork.jpg/2000x2000bb.jpg">
+<!-- PLACEHOLDER: Set og:url to the confirmed deployment URL once known -->
+<!-- <meta property="og:url" content="https://your-deployment-url"> -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FS HAIMAN — Kashmir / Hip-Hop">
+<meta name="twitter:description" content="FS HAIMAN — rapper from Kashmir blending English, Urdu and Koshur with modern desi hip-hop.">
+<meta name="twitter:image" content="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/63/cc/84/63cc8493-f2ca-8b63-3a4b-b93f06fef3b7/artwork.jpg/2000x2000bb.jpg">
+
+<!-- ============ FONTS ============ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://is1-ssl.mzstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- ============ STRUCTURED DATA (factual only) ============ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "name": "FS HAIMAN",
+  "genre": "Hip-Hop",
+  "description": "Rapper from Kashmir blending English, Urdu and Koshur with modern desi hip-hop.",
+  "image": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/63/cc/84/63cc8493-f2ca-8b63-3a4b-b93f06fef3b7/artwork.jpg/2000x2000bb.jpg",
+  "sameAs": [
+    "https://open.spotify.com/artist/7tPPD8p96vh0tED64DVWJD",
+    "https://music.apple.com/us/artist/fs-haiman/1805456783",
+    "https://www.instagram.com/fs_haiman"
+  ]
+}
+</script>
+
+<style>
+/* ============================================================
+   DESIGN SYSTEM
+   ============================================================ */
+:root{
+  /* Colour system */
+  --ink:#07080C;
+  --deep-ink:#0C0E15;
+  --surface:#12151F;
+  --paper:#F4EFE5;
+  --crimson:#E5372B;
+  --deep-crimson:#9E140C;
+  --saffron:#F0A93A;
+  --cold-shadow:#3B6E8F;
+
+  --paper-dim:rgba(244,239,229,.62);
+  --paper-faint:rgba(244,239,229,.34);
+  --hairline:rgba(244,239,229,.14);
+
+  /* Type */
+  --display:'Archivo',system-ui,sans-serif;
+  --body:'Space Grotesk',system-ui,sans-serif;
+  --mono:'Space Mono',ui-monospace,monospace;
+
+  /* Layout */
+  --edge:clamp(1.1rem,5vw,5rem);
+  --maxw:1400px;
+
+  /* Cursor spotlight position (updated by JS) */
+  --mx:50%;
+  --my:50%;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--body);
+  font-size:clamp(1rem,.95rem + .25vw,1.15rem);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+body.intro-lock{overflow:hidden;height:100svh}
+
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+::selection{background:var(--crimson);color:var(--paper)}
+
+:focus-visible{
+  outline:2px solid var(--saffron);
+  outline-offset:3px;
+  border-radius:1px;
+}
+
+.mono{font-family:var(--mono)}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--edge)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* ============================================================
+   FIXED CINEMATIC OVERLAYS
+   ============================================================ */
+.fx{position:fixed;inset:0;pointer-events:none;z-index:60}
+
+/* Film grain */
+.fx-grain{
+  opacity:.06;
+  mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 1.2s steps(3) infinite;
+}
+@keyframes grain{
+  0%{transform:translate(0,0)}
+  33%{transform:translate(-2%,1%)}
+  66%{transform:translate(1%,-2%)}
+  100%{transform:translate(0,0)}
+}
+
+/* Vignette */
+.fx-vignette{
+  background:radial-gradient(130% 100% at 50% 44%,transparent 55%,rgba(0,0,0,.55) 100%);
+  z-index:58;
+}
+
+/* Scanlines — very subtle */
+.fx-scan{
+  opacity:.5;
+  background:repeating-linear-gradient(to bottom,rgba(0,0,0,0) 0 2px,rgba(0,0,0,.06) 2px 3px);
+  z-index:59;
+}
+
+/* Cursor spotlight (desktop / fine pointer only) */
+.fx-spot{
+  z-index:57;opacity:0;transition:opacity .5s ease;
+  background:radial-gradient(340px circle at var(--mx) var(--my),rgba(229,55,43,.10),transparent 60%);
+}
+@media (hover:hover) and (pointer:fine){
+  body.pointer-active .fx-spot{opacity:1}
+}
+
+/* Colour grade wash */
+.fx-grade{
+  z-index:56;mix-blend-mode:soft-light;opacity:.5;
+  background:linear-gradient(180deg,rgba(59,110,143,.20),transparent 30% 70%,rgba(158,20,12,.16));
+}
+
+/* ============================================================
+   SCROLL PROGRESS SCRUBBER
+   ============================================================ */
+.scrubber{
+  position:fixed;top:0;left:0;height:3px;width:100%;
+  transform:scaleX(0);transform-origin:0 50%;
+  background:linear-gradient(90deg,var(--deep-crimson),var(--crimson));
+  z-index:120;will-change:transform;
+}
+
+/* ============================================================
+   INTRO TITLE CARD
+   ============================================================ */
+.intro{
+  position:fixed;inset:0;z-index:200;
+  background:var(--ink);
+  display:grid;place-items:center;
+  text-align:center;
+  transition:opacity .8s ease,visibility .8s;
+}
+.intro.done{opacity:0;visibility:hidden;pointer-events:none}
+.intro__bar{
+  position:absolute;left:0;right:0;height:12vh;background:#000;
+  transition:transform 1s cubic-bezier(.7,0,.2,1);
+}
+.intro__bar--top{top:0}
+.intro__bar--bot{bottom:0}
+.intro.retract .intro__bar--top{transform:translateY(-100%)}
+.intro.retract .intro__bar--bot{transform:translateY(100%)}
+.intro__meta{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.42em;
+  color:var(--paper-dim);text-transform:uppercase;
+  opacity:0;animation:fadeUp .7s ease .15s forwards;
+}
+.intro__title{
+  font-family:var(--display);font-weight:900;
+  font-size:clamp(2.6rem,13vw,10rem);line-height:.9;
+  letter-spacing:-.03em;margin:.4rem 0;
+  display:flex;gap:.28em;justify-content:center;
+}
+.intro__title span{opacity:0;transform:translateY(.35em)}
+.intro__title .fs{animation:titleIn .7s cubic-bezier(.2,.7,.2,1) .5s forwards}
+.intro__title .hm{animation:titleIn .7s cubic-bezier(.2,.7,.2,1) .82s forwards}
+.intro.settle .intro__title{animation:trackSettle .7s ease forwards}
+.intro__sub{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.4em;
+  color:var(--crimson);text-transform:uppercase;
+  opacity:0;animation:fadeUp .7s ease 1.15s forwards;
+}
+.intro__skip{
+  position:absolute;bottom:6vh;left:50%;transform:translateX(-50%);
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.3em;
+  color:var(--paper-faint);text-transform:uppercase;
+  background:none;border:1px solid var(--hairline);
+  padding:.6rem 1.1rem;cursor:pointer;pointer-events:auto;
+  opacity:0;animation:fadeUp .6s ease 1.3s forwards;
+  transition:color .3s,border-color .3s;
+}
+.intro__skip:hover{color:var(--paper);border-color:var(--crimson)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(.6em)}to{opacity:1;transform:translateY(0)}}
+@keyframes titleIn{to{opacity:1;transform:translateY(0)}}
+@keyframes trackSettle{
+  0%{letter-spacing:0}
+  40%{letter-spacing:-.06em}
+  100%{letter-spacing:-.03em}
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:110;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.15rem var(--edge);
+  transition:background .4s ease,backdrop-filter .4s ease,padding .4s ease,border-color .4s;
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{
+  background:rgba(7,8,12,.72);
+  backdrop-filter:blur(14px) saturate(120%);
+  -webkit-backdrop-filter:blur(14px) saturate(120%);
+  padding-block:.7rem;
+  border-bottom-color:var(--hairline);
+}
+.nav__brand{
+  font-family:var(--display);font-weight:900;font-size:1rem;
+  letter-spacing:-.01em;text-transform:uppercase;
+}
+.nav__links{display:flex;gap:clamp(1rem,2.4vw,2.3rem);align-items:center}
+.nav__links a{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--paper-dim);
+  position:relative;padding:.4rem 0;transition:color .3s;
+}
+.nav__links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1.5px;width:0;
+  background:var(--crimson);transition:width .35s cubic-bezier(.2,.7,.2,1);
+}
+.nav__links a:hover,.nav__links a.active{color:var(--paper)}
+.nav__links a:hover::after,.nav__links a.active::after{width:100%}
+.nav__toggle{display:none}
+
+@media (max-width:760px){
+  .nav__links{
+    position:fixed;inset:0;background:rgba(7,8,12,.97);
+    flex-direction:column;justify-content:center;gap:2rem;
+    transform:translateX(100%);transition:transform .45s cubic-bezier(.7,0,.2,1);
+    z-index:1;
+  }
+  .nav.open .nav__links{transform:translateX(0)}
+  .nav__links a{font-size:1rem}
+  .nav__toggle{
+    display:flex;flex-direction:column;gap:5px;z-index:2;
+    background:none;border:0;cursor:pointer;padding:.4rem;
+  }
+  .nav__toggle span{width:26px;height:2px;background:var(--paper);transition:transform .35s,opacity .3s}
+  .nav.open .nav__toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav.open .nav__toggle span:nth-child(2){opacity:0}
+  .nav.open .nav__toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+
+/* ============================================================
+   CHINAR LEAF CANVAS
+   ============================================================ */
+#leaves{position:fixed;inset:0;z-index:55;pointer-events:none}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;min-height:100svh;
+  display:flex;align-items:flex-end;
+  overflow:hidden;isolation:isolate;
+}
+.hero__bg{
+  position:absolute;inset:-8% -4%;z-index:-2;
+  background:url("https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/63/cc/84/63cc8493-f2ca-8b63-3a4b-b93f06fef3b7/artwork.jpg/2000x2000bb.jpg") center/cover no-repeat;
+  filter:brightness(.52) contrast(1.08) saturate(.82);
+  animation:kenburns 24s ease-in-out infinite alternate;
+  will-change:transform;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(7,8,12,.55) 0%,transparent 30% 55%,var(--ink) 96%);
+}
+@keyframes kenburns{
+  0%{transform:scale(1.05) translate(0,0)}
+  100%{transform:scale(1.16) translate(-2.2%,-1.4%)}
+}
+.hero__inner{width:100%;padding-bottom:clamp(2.5rem,7vh,6rem);position:relative}
+.hero__eyebrow{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.4em;
+  text-transform:uppercase;color:var(--crimson);
+  display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;
+}
+.hero__eyebrow::before{content:"";width:clamp(2rem,8vw,5rem);height:1px;background:var(--crimson)}
+.hero__title{
+  font-family:var(--display);font-weight:900;
+  font-size:clamp(4rem,20vw,17rem);line-height:.82;
+  letter-spacing:-.04em;text-transform:uppercase;
+  margin-left:-.03em;
+}
+.hero__title .line{display:block}
+.hero__title .haiman{
+  color:transparent;-webkit-text-stroke:1.5px var(--paper);
+  text-stroke:1.5px var(--paper);
+}
+.hero__meta{
+  font-family:var(--mono);font-size:.75rem;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--paper-dim);
+  margin:1.4rem 0 1.8rem;
+}
+.hero__cta{display:flex;flex-wrap:wrap;gap:.8rem}
+
+/* Film-label buttons */
+.btn{
+  font-family:var(--mono);font-size:.74rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--paper);
+  border:1px solid var(--hairline);background:rgba(7,8,12,.35);
+  padding:.95rem 1.5rem;min-height:44px;
+  display:inline-flex;align-items:center;gap:.7rem;cursor:pointer;
+  position:relative;overflow:hidden;
+  transition:border-color .35s,letter-spacing .35s,color .35s;
+}
+.btn span.arw{display:inline-block;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.btn::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:var(--crimson);transform:translateY(101%);
+  transition:transform .4s cubic-bezier(.7,0,.2,1);
+}
+.btn:hover{border-color:var(--crimson);letter-spacing:.26em}
+.btn:hover::before{transform:translateY(0)}
+.btn:hover .arw{transform:translateX(5px)}
+.btn--solid{background:var(--crimson);border-color:var(--crimson)}
+.btn--solid::before{background:var(--deep-crimson)}
+
+.scrollcue{
+  position:absolute;bottom:2rem;right:var(--edge);
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--paper-dim);
+  display:flex;flex-direction:column;align-items:center;gap:.7rem;
+  writing-mode:vertical-rl;
+}
+.scrollcue .arrow{writing-mode:horizontal-tb;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+.marquee{
+  border-block:1px solid var(--hairline);
+  background:var(--deep-ink);padding:1.1rem 0;overflow:hidden;
+  white-space:nowrap;position:relative;
+}
+.marquee__track{display:inline-flex;will-change:transform;animation:scroll-x 42s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+.marquee__track span{
+  font-family:var(--display);font-weight:900;
+  font-size:clamp(1.4rem,3.4vw,2.6rem);letter-spacing:-.01em;
+  text-transform:uppercase;color:var(--paper);padding-inline:1.2rem;
+}
+.marquee__track span i{color:var(--crimson);font-style:normal;padding-inline:1.2rem}
+@keyframes scroll-x{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============================================================
+   SECTION SLATES
+   ============================================================ */
+section{position:relative}
+.slate{padding:clamp(4rem,11vh,9rem) 0 clamp(1.5rem,4vh,3rem)}
+.slate__reel{
+  font-family:var(--mono);font-size:.74rem;letter-spacing:.4em;
+  text-transform:uppercase;color:var(--crimson);
+  display:flex;align-items:center;gap:1rem;margin-bottom:1rem;
+}
+.slate__reel::before{content:"";width:2.6rem;height:1px;background:var(--crimson)}
+.slate__title{
+  font-family:var(--display);font-weight:900;
+  font-size:clamp(2.4rem,8vw,6rem);line-height:.92;
+  letter-spacing:-.03em;text-transform:uppercase;
+}
+.slate__rule{height:1px;background:var(--hairline);margin-top:clamp(1.4rem,3vh,2.4rem)}
+
+/* ============================================================
+   REEL 01 — ARTIST INTRO
+   ============================================================ */
+.artist{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4.5rem);
+  align-items:center;padding-bottom:clamp(3rem,8vh,6rem);
+}
+.artist__img{
+  position:relative;overflow:hidden;aspect-ratio:1;
+  border:1px solid var(--hairline);
+}
+.artist__img img{
+  width:100%;height:100%;object-fit:cover;
+  filter:brightness(.85) contrast(1.05) saturate(.9);
+  transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .6s;
+}
+.artist__img:hover img{transform:scale(1.05);filter:brightness(1) contrast(1.08)}
+.artist__img .tag{
+  position:absolute;bottom:0;left:0;
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--paper);
+  background:rgba(7,8,12,.7);padding:.55rem .9rem;
+  border-top:1px solid var(--crimson);
+}
+.artist__body p{font-size:clamp(1.05rem,1rem + .5vw,1.4rem);color:var(--paper);margin-bottom:1.3rem;max-width:36ch}
+.artist__body .lead{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,1rem + 2vw,2.4rem);line-height:1.2;letter-spacing:-.01em}
+.artist__facts{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;
+  margin-top:2rem;border-top:1px solid var(--hairline);padding-top:1.8rem;
+}
+.fact__n{font-family:var(--display);font-weight:900;font-size:clamp(1.8rem,5vw,3rem);line-height:1;letter-spacing:-.02em}
+.fact__l{font-family:var(--mono);font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--paper-dim);margin-top:.5rem}
+.fact__n .accent{color:var(--crimson)}
+
+/* ============================================================
+   THERE WILL BE BLOOD — cinematic panel
+   ============================================================ */
+.blood{position:relative;min-height:88vh;min-height:88svh;display:flex;align-items:center;overflow:hidden;isolation:isolate}
+.blood__bg{
+  position:absolute;inset:-10% 0;z-index:-2;
+  background:url("https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/97/dc/99/97dc99f9-3291-d632-7e51-039785951b5b/f6ea2840-c7ca-4bb5-aaa9-ec3bf0b2da1a.jpg/2000x2000bb.jpg") center/cover no-repeat;
+  filter:brightness(.4) contrast(1.15) saturate(.85);
+  will-change:transform;transform:scale(1.1);
+}
+.blood::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,8,12,.85),transparent 60%),radial-gradient(120% 100% at 50% 50%,transparent 50%,rgba(0,0,0,.6))}
+.blood__inner{padding-block:clamp(3rem,8vh,6rem)}
+.blood__meta{font-family:var(--mono);font-size:.74rem;letter-spacing:.4em;text-transform:uppercase;color:var(--saffron);margin-bottom:1rem}
+.blood__title{
+  font-family:var(--display);font-weight:900;
+  font-size:clamp(2.6rem,11vw,9rem);line-height:.86;
+  letter-spacing:-.03em;text-transform:uppercase;
+  text-shadow:0 12px 60px rgba(0,0,0,.6);
+}
+.blood__title .blood-word{color:var(--crimson)}
+.blood__sub{font-family:var(--mono);font-size:.85rem;letter-spacing:.24em;text-transform:uppercase;color:var(--paper-dim);margin-top:1.4rem;display:flex;gap:1.4rem;flex-wrap:wrap}
+.blood__tracks{list-style:none;margin:2rem 0;max-width:44ch}
+.blood__tracks li{
+  font-family:var(--body);font-size:1rem;color:var(--paper);
+  padding:.7rem 0;border-top:1px solid var(--hairline);
+  display:flex;gap:1rem;align-items:baseline;
+}
+.blood__tracks li .num{font-family:var(--mono);font-size:.72rem;color:var(--crimson);min-width:2.2em}
+.blood__tracks li .feat{color:var(--paper-dim);font-size:.85em}
+.blood__quote{
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(1.3rem,1rem + 2vw,2.4rem);line-height:1.25;
+  letter-spacing:-.01em;max-width:20ch;
+  border-left:2px solid var(--crimson);padding-left:1.4rem;margin-top:1rem;
+}
+
+/* ============================================================
+   NOW PLAYING
+   ============================================================ */
+.nowplaying{padding-bottom:clamp(3rem,8vh,6rem)}
+.frame{
+  position:relative;border:1px solid var(--hairline);
+  background:var(--deep-ink);padding:clamp(1rem,2.5vw,2rem);
+  box-shadow:0 40px 120px rgba(0,0,0,.5);
+}
+.frame__no{
+  position:absolute;top:-.6em;right:.6rem;
+  font-family:var(--display);font-weight:900;
+  font-size:clamp(3rem,10vw,7rem);line-height:1;
+  color:transparent;-webkit-text-stroke:1px var(--hairline);
+  z-index:0;pointer-events:none;
+}
+.frame__head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:1rem;margin-bottom:1.2rem;position:relative;z-index:1}
+.frame__head h3{font-family:var(--display);font-weight:900;font-size:clamp(1.4rem,4vw,2.2rem);letter-spacing:-.02em;text-transform:uppercase}
+.frame__head .meta{font-family:var(--mono);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--paper-dim)}
+.frame__embed{position:relative;z-index:1;border-radius:12px;overflow:hidden;background:var(--surface);min-height:352px}
+.frame__embed iframe{display:block;width:100%;border:0}
+.frame__fallback{
+  padding:2rem;text-align:center;font-family:var(--mono);font-size:.8rem;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--paper-dim);
+}
+.frame__fallback a{color:var(--crimson);border-bottom:1px solid var(--crimson)}
+
+/* ============================================================
+   DISCOGRAPHY
+   ============================================================ */
+.disco{padding-bottom:clamp(3rem,9vh,7rem)}
+.disco__year{
+  font-family:var(--mono);font-size:.74rem;letter-spacing:.34em;
+  text-transform:uppercase;color:var(--paper-dim);
+  display:flex;align-items:center;gap:1rem;margin:2.4rem 0 1.4rem;
+}
+.disco__year::after{content:"";flex:1;height:1px;background:var(--hairline)}
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  gap:clamp(1rem,2vw,1.6rem);
+}
+.card{
+  position:relative;display:block;cursor:pointer;
+  border:1px solid var(--hairline);background:var(--surface);
+  overflow:hidden;transform-style:preserve-3d;
+  transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .35s,box-shadow .35s;
+  will-change:transform;
+}
+.card:hover{border-color:rgba(229,55,43,.55);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.card__art{position:relative;aspect-ratio:1;overflow:hidden;background:var(--deep-ink)}
+.card__art img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .5s;filter:brightness(.9) contrast(1.03)}
+.card:hover .card__art img{transform:scale(1.08);filter:brightness(1) contrast(1.08)}
+
+/* Designed placeholder title-card */
+.card__ph{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  justify-content:space-between;padding:1.1rem;
+  background:
+    radial-gradient(120% 90% at 20% 0%,rgba(158,20,12,.28),transparent 60%),
+    linear-gradient(160deg,var(--deep-ink),var(--surface));
+}
+.card__ph::before{
+  content:"";position:absolute;inset:0;opacity:.5;
+  background:repeating-linear-gradient(to bottom,transparent 0 3px,rgba(0,0,0,.14) 3px 4px);
+}
+.card__ph .ph-top{font-family:var(--mono);font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--paper-dim);position:relative}
+.card__ph .ph-name{font-family:var(--display);font-weight:900;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--crimson);position:relative}
+.card__ph .ph-title{font-family:var(--display);font-weight:900;font-size:clamp(1.2rem,3vw,1.7rem);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;color:var(--paper);position:relative}
+.card__ph .ph-meta{font-family:var(--mono);font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--paper-dim);position:relative}
+
+.card__line{height:2px;width:0;background:var(--crimson);transition:width .4s cubic-bezier(.2,.7,.2,1)}
+.card:hover .card__line{width:100%}
+.card__info{padding:.95rem 1.05rem 1.1rem;position:relative;z-index:2;background:var(--surface)}
+.card__info h4{font-family:var(--display);font-weight:900;font-size:1.05rem;letter-spacing:-.01em;text-transform:uppercase;transition:transform .35s;line-height:1.05}
+.card:hover .card__info h4{transform:translateX(4px)}
+.card__info .m{font-family:var(--mono);font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--paper-dim);margin-top:.5rem;display:flex;gap:.7rem;flex-wrap:wrap;align-items:center}
+.badge{color:var(--ink);background:var(--crimson);padding:.15em .5em;font-weight:700}
+.card__tracks{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:var(--paper-faint);margin-top:.5rem;text-transform:uppercase}
+
+/* Film-frame cursor label on cards */
+.card__cursor{
+  position:absolute;z-index:3;top:0;left:0;pointer-events:none;
+  transform:translate(-50%,-50%) scale(.6);opacity:0;
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  background:var(--crimson);color:var(--ink);padding:.35rem .6rem;font-weight:700;
+  transition:opacity .25s,transform .25s;white-space:nowrap;
+}
+@media (hover:hover) and (pointer:fine){
+  .card:hover .card__cursor{opacity:1;transform:translate(-50%,-50%) scale(1)}
+}
+
+/* ============================================================
+   REEL 03 — STORY
+   ============================================================ */
+.story{padding-bottom:clamp(4rem,10vh,8rem);max-width:52rem}
+.story p{
+  font-family:var(--display);font-weight:500;
+  font-size:clamp(1.5rem,1rem + 2.4vw,2.9rem);line-height:1.28;
+  letter-spacing:-.015em;margin-bottom:1.6rem;
+}
+.story p .hl{color:var(--crimson)}
+.story__note{font-family:var(--mono);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--paper-faint);margin-top:2rem}
+
+/* ============================================================
+   LISTEN EVERYWHERE
+   ============================================================ */
+.listen{padding-block:clamp(4rem,11vh,9rem);border-top:1px solid var(--hairline)}
+.listen h2{
+  font-family:var(--display);font-weight:900;
+  font-size:clamp(2.6rem,11vw,8rem);line-height:.9;
+  letter-spacing:-.03em;text-transform:uppercase;margin-bottom:clamp(2rem,5vh,3.5rem);
+}
+.listen__list{border-top:1px solid var(--hairline)}
+.listen__row{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:clamp(1.3rem,3.5vh,2.4rem) 0;border-bottom:1px solid var(--hairline);
+  position:relative;overflow:hidden;
+}
+.listen__row .lbl{
+  font-family:var(--display);font-weight:900;
+  font-size:clamp(1.8rem,7vw,4.5rem);line-height:1;
+  letter-spacing:-.02em;text-transform:uppercase;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),color .4s;
+}
+.listen__row .go{font-family:var(--mono);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--paper-dim);transition:transform .4s,color .4s;display:flex;align-items:center;gap:.6rem}
+.listen__row::before{content:"";position:absolute;left:0;bottom:0;height:100%;width:0;background:var(--crimson);z-index:-1;transition:width .45s cubic-bezier(.7,0,.2,1)}
+.listen__row:hover .lbl{transform:translateX(1.2rem);color:var(--ink)}
+.listen__row:hover .go{transform:translateX(-.6rem);color:var(--ink)}
+.listen__row:hover::before{width:100%}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{padding-top:clamp(3rem,8vh,6rem);padding-bottom:clamp(2rem,5vh,3rem);overflow:hidden}
+.footer__giant{
+  font-family:var(--display);font-weight:900;
+  font-size:clamp(3.5rem,22vw,20rem);line-height:.8;
+  letter-spacing:-.045em;text-transform:uppercase;
+  color:transparent;-webkit-text-stroke:1px var(--paper-faint);
+  text-stroke:1px var(--paper-faint);
+  white-space:nowrap;transition:-webkit-text-stroke-color .5s;
+  margin-inline:calc(var(--edge) * -1);padding-inline:var(--edge);
+}
+.footer__giant:hover{-webkit-text-stroke-color:var(--crimson)}
+.footer__grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:2rem;margin-top:clamp(2rem,5vh,3.5rem);
+  border-top:1px solid var(--hairline);padding-top:2.5rem;
+}
+.footer__col .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--paper-faint);margin-bottom:.7rem}
+.footer__col a,.footer__col p{font-family:var(--body);font-size:1rem;color:var(--paper)}
+.footer__col a{position:relative;display:inline-block}
+.footer__col a::after{content:"";position:absolute;left:0;bottom:-2px;height:1px;width:0;background:var(--crimson);transition:width .35s}
+.footer__col a:hover::after{width:100%}
+.footer__end{
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+  margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--hairline);
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--paper-faint);
+}
+.footer__end .reel-end{color:var(--crimson)}
+
+/* ============================================================
+   REVEAL ANIMATIONS
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-d="1"]{transition-delay:.08s}
+.reveal[data-d="2"]{transition-delay:.16s}
+.reveal[data-d="3"]{transition-delay:.24s}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:860px){
+  .artist{grid-template-columns:1fr;gap:2.2rem}
+  .artist__img{max-width:420px}
+}
+@media (max-width:600px){
+  .hero{align-items:flex-end}
+  .scrollcue{display:none}
+  .artist__facts{grid-template-columns:1fr 1fr}
+  .blood__inner{padding-block:5rem}
+  .listen__row{padding-block:1.3rem}
+  .footer__giant{font-size:clamp(3rem,26vw,7rem)}
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .hero__bg{animation:none;transform:scale(1.05)}
+  .blood__bg{transform:scale(1.05)}
+  .marquee__track{animation:none}
+  .fx-grain{animation:none}
+  .reveal{opacity:1;transform:none}
+  .intro{display:none}
+  body.intro-lock{overflow:auto;height:auto}
+}
+</style>
+</head>
+<body class="intro-lock">
+
+<!-- ============ CINEMATIC OVERLAYS ============ -->
+<div class="fx fx-grade" aria-hidden="true"></div>
+<div class="fx fx-spot" aria-hidden="true"></div>
+<div class="fx fx-scan" aria-hidden="true"></div>
+<div class="fx fx-vignette" aria-hidden="true"></div>
+<div class="fx fx-grain" aria-hidden="true"></div>
+
+<!-- ============ SCROLL SCRUBBER ============ -->
+<div class="scrubber" id="scrubber" aria-hidden="true"></div>
+
+<!-- ============ CHINAR LEAVES ============ -->
+<canvas id="leaves" aria-hidden="true"></canvas>
+
+<!-- ============ INTRO TITLE CARD ============ -->
+<div class="intro" id="intro" role="dialog" aria-label="Intro title card">
+  <div class="intro__bar intro__bar--top"></div>
+  <div class="intro__bar intro__bar--bot"></div>
+  <div>
+    <p class="intro__meta">Reel 01 &nbsp;/&nbsp; A Cinematic Presentation</p>
+    <h1 class="intro__title" aria-label="FS HAIMAN">
+      <span class="fs">FS</span><span class="hm">HAIMAN</span>
+    </h1>
+    <p class="intro__sub">Kashmir / Hip-Hop</p>
+  </div>
+  <button class="intro__skip" id="skip" type="button">Skip Intro ✕</button>
+</div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav" aria-label="Primary">
+  <a href="#top" class="nav__brand">FS HAIMAN</a>
+  <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav__links" id="navLinks">
+    <a href="#music">Music</a>
+    <a href="#story">Story</a>
+    <a href="#listen">Listen</a>
+    <a href="https://www.instagram.com/fs_haiman" target="_blank" rel="noopener noreferrer">IG</a>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__inner wrap">
+      <p class="hero__eyebrow">Kashmir / Hip-Hop</p>
+      <div class="hero__title" aria-label="FS HAIMAN">
+        <span class="line">FS</span>
+        <span class="line haiman">HAIMAN</span>
+      </div>
+      <p class="hero__meta">English &nbsp;·&nbsp; Urdu &nbsp;·&nbsp; Koshur &nbsp;—&nbsp; Emerging / Still Climbing</p>
+      <div class="hero__cta">
+        <a class="btn btn--solid" href="https://open.spotify.com/artist/7tPPD8p96vh0tED64DVWJD" target="_blank" rel="noopener noreferrer">Listen on Spotify <span class="arw">→</span></a>
+        <a class="btn" href="https://music.apple.com/us/artist/fs-haiman/1805456783" target="_blank" rel="noopener noreferrer">Apple Music <span class="arw">→</span></a>
+        <a class="btn" href="https://www.instagram.com/fs_haiman" target="_blank" rel="noopener noreferrer">Instagram <span class="arw">→</span></a>
+      </div>
+    </div>
+    <div class="scrollcue" aria-hidden="true">Scroll to Enter <span class="arrow">↓</span></div>
+  </header>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track" id="marquee"></div>
+  </div>
+
+  <!-- ============ REEL 01 — THE ARTIST ============ -->
+  <section class="wrap" id="music">
+    <div class="slate reveal">
+      <p class="slate__reel">Reel 01</p>
+      <h2 class="slate__title">The Artist</h2>
+    </div>
+    <div class="artist">
+      <div class="artist__img reveal">
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/63/cc/84/63cc8493-f2ca-8b63-3a4b-b93f06fef3b7/artwork.jpg/2000x2000bb.jpg" alt="Portrait of FS HAIMAN" loading="lazy" width="2000" height="2000">
+        <span class="tag">FS HAIMAN / Portrait</span>
+      </div>
+      <div class="artist__body reveal" data-d="1">
+        <p class="lead">Kashmiri identity meets modern desi hip-hop.</p>
+        <p>A rapper from Kashmir moving between English, Urdu and Koshur — cold, cinematic, and rooted in place.</p>
+        <div class="artist__facts">
+          <div><div class="fact__n"><span class="accent">13</span>+</div><div class="fact__l">Releases 2025—2026</div></div>
+          <div><div class="fact__n">2025</div><div class="fact__l">First Release / WARNING</div></div>
+          <div><div class="fact__n">3</div><div class="fact__l">Languages</div></div>
+          <div><div class="fact__n">~200</div><div class="fact__l">Spotify Monthly Listeners</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REEL 02 — THERE WILL BE BLOOD ============ -->
+  <section id="twbb">
+    <div class="wrap">
+      <div class="slate reveal">
+        <p class="slate__reel">Reel 02</p>
+        <h2 class="slate__title">There Will Be Blood</h2>
+      </div>
+    </div>
+    <div class="blood">
+      <div class="blood__bg" id="bloodBg" aria-hidden="true"></div>
+      <div class="blood__inner wrap">
+        <p class="blood__meta">Extended Play / 2025</p>
+        <h3 class="blood__title reveal">There Will <span class="blood-word">Be Blood</span></h3>
+        <p class="blood__sub reveal" data-d="1"><span>EP</span><span>2025</span><span>6 Tracks</span></p>
+        <ol class="blood__tracks reveal" data-d="1">
+          <li><span class="num">01</span><span>Dolce Gabbana <span class="feat">feat. That Hat Boy</span></span></li>
+          <li><span class="num">02</span><span>Moradabad Freestyle <span class="feat">feat. Tabish Wani</span></span></li>
+          <li><span class="num">03</span><span>Tange Chinar Pe</span></li>
+          <li><span class="num">04</span><span>Scene Jump</span></li>
+          <li><span class="num">05</span><span>Bars on Bars <span class="feat">feat. UMX</span></span></li>
+          <li><span class="num">06</span><span>YKWID</span></li>
+        </ol>
+        <p class="blood__quote reveal" data-d="2">“Kashmiri identity meets modern desi hip-hop.”</p>
+        <div class="hero__cta reveal" data-d="2" style="margin-top:2rem">
+          <a class="btn btn--solid" href="https://music.apple.com/us/album/there-will-be-blood/1822037966" target="_blank" rel="noopener noreferrer">Play the EP <span class="arw">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NOW PLAYING ============ -->
+  <section class="wrap nowplaying" id="nowplaying">
+    <div class="slate reveal">
+      <p class="slate__reel">Now Playing</p>
+      <h2 class="slate__title">Spotify / Artist Radio</h2>
+    </div>
+    <div class="frame reveal" data-d="1">
+      <span class="frame__no" aria-hidden="true">002</span>
+      <div class="frame__head">
+        <h3>Now Playing</h3>
+        <span class="meta">Spotify / Artist Radio</span>
+      </div>
+      <div class="frame__embed" id="spotifyWrap">
+        <iframe
+          title="FS HAIMAN on Spotify"
+          src="https://open.spotify.com/embed/artist/7tPPD8p96vh0tED64DVWJD?utm_source=generator&theme=0"
+          width="100%" height="352" loading="lazy"
+          frameborder="0" allowfullscreen
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          onerror="spotifyFail()"></iframe>
+      </div>
+      <noscript><p class="frame__fallback"><a href="https://open.spotify.com/artist/7tPPD8p96vh0tED64DVWJD" target="_blank" rel="noopener noreferrer">Open FS HAIMAN on Spotify</a></p></noscript>
+    </div>
+  </section>
+
+  <!-- ============ DISCOGRAPHY ============ -->
+  <section class="wrap disco" id="discography">
+    <div class="slate reveal">
+      <p class="slate__reel">Catalogue</p>
+      <h2 class="slate__title">Discography</h2>
+    </div>
+    <div id="disco"></div>
+  </section>
+
+  <!-- ============ REEL 03 — THE STORY ============ -->
+  <section class="wrap" id="story">
+    <div class="slate reveal">
+      <p class="slate__reel">Reel 03</p>
+      <h2 class="slate__title">The Story</h2>
+    </div>
+    <div class="story reveal" data-d="1">
+      <p>FS HAIMAN is a rapper from <span class="hl">Kashmir</span>, working across English, Urdu and Koshur — blending Kashmiri identity with modern desi hip-hop.</p>
+      <p>With releases beginning in 2025 and a growing catalogue across 2025—2026, the project is still at the <span class="hl">ground floor</span> — building, experimenting and climbing.</p>
+      <p class="story__note">Discovered before the crowd arrives.</p>
+    </div>
+  </section>
+
+  <!-- ============ LISTEN EVERYWHERE ============ -->
+  <section class="wrap listen" id="listen">
+    <h2 class="reveal">Listen Everywhere</h2>
+    <div class="listen__list reveal" data-d="1">
+      <a class="listen__row" href="https://open.spotify.com/artist/7tPPD8p96vh0tED64DVWJD" target="_blank" rel="noopener noreferrer">
+        <span class="lbl">Spotify</span><span class="go">Artist Radio →</span>
+      </a>
+      <a class="listen__row" href="https://music.apple.com/us/artist/fs-haiman/1805456783" target="_blank" rel="noopener noreferrer">
+        <span class="lbl">Apple Music</span><span class="go">Full Catalogue →</span>
+      </a>
+      <a class="listen__row" href="https://www.instagram.com/fs_haiman" target="_blank" rel="noopener noreferrer">
+        <span class="lbl">Instagram</span><span class="go">@fs_haiman →</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" id="footer">
+  <div class="wrap">
+    <div class="footer__giant reveal" aria-hidden="true">FS HAIMAN</div>
+    <div class="footer__grid">
+      <div class="footer__col">
+        <p class="k">Booking</p>
+        <!-- PLACEHOLDER: Replace with confirmed booking email -->
+        <a href="mailto:your@email.com">your@email.com</a>
+      </div>
+      <div class="footer__col">
+        <p class="k">Follow</p>
+        <a href="https://www.instagram.com/fs_haiman" target="_blank" rel="noopener noreferrer">Instagram / @fs_haiman</a>
+      </div>
+      <div class="footer__col">
+        <p class="k">Listen</p>
+        <a href="https://open.spotify.com/artist/7tPPD8p96vh0tED64DVWJD" target="_blank" rel="noopener noreferrer">Spotify</a><br>
+        <a href="https://music.apple.com/us/artist/fs-haiman/1805456783" target="_blank" rel="noopener noreferrer">Apple Music</a>
+      </div>
+      <div class="footer__col">
+        <p class="k">Location</p>
+        <!-- PLACEHOLDER: Optional confirmed city — CITY — TO BE CONFIRMED -->
+        <p>Kashmir</p>
+      </div>
+    </div>
+    <div class="footer__end">
+      <span>FS HAIMAN — Kashmir / Hip-Hop</span>
+      <span>2025—2026</span>
+      <span class="reel-end">End of Reel ✕</span>
+    </div>
+  </div>
+</footer>
+
+<!--
+  ============ PLACEHOLDERS (see README) ============
+  - Booking email:  your@email.com  (footer)
+  - City:           CITY — TO BE CONFIRMED  (footer Location)
+  - Longer bio:     LONGER BIO — TO BE CONFIRMED  (Reel 03 / Story)
+  - Hero photo:     HERO PHOTO — OPTIONAL  (currently uses artist artwork)
+  - YouTube links:  YOUTUBE LINKS — TO BE CONFIRMED
+-->
+
+<script>
+/* ============================================================
+   CONFIG
+   ============================================================ */
+var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var FINE = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+var SPOTIFY_ARTIST = 'https://open.spotify.com/artist/7tPPD8p96vh0tED64DVWJD';
+var APPLE_ARTIST = 'https://music.apple.com/us/artist/fs-haiman/1805456783';
+
+/* ============================================================
+   RELEASE CATALOGUE — single source of truth
+   ============================================================ */
+var releases = [
+  { title:"INTRO-SPECT", type:"Single", year:"2026", slug:"intro-spect", latest:true,
+    apple:"https://music.apple.com/us/album/intro-spect-single/1872336677" },
+  { title:"BAATEIN", type:"Single", year:"2026", slug:"baatein",
+    apple:"https://music.apple.com/us/album/baatein-single/1866021198" },
+  { title:"J TO K", type:"EP", year:"2025", slug:"j-to-k",
+    tracks:["Forte","Physics Paper","Me Vs Me"],
+    apple:"https://music.apple.com/us/album/j-to-k-single/1861977903" },
+
+  { title:"TAKDA REHA", type:"Single", year:"2025", slug:"takda-reha", feat:"feat. That Hat Boy",
+    apple:"https://music.apple.com/us/album/takda-reha-feat-that-hat-boy-single/1843636270" },
+  { title:"THERAPY", type:"Single", year:"2025", slug:"therapy" },
+  { title:"BOO", type:"Single", year:"2025", slug:"boo" },
+  { title:"HOMICIDE", type:"Single", year:"2025", slug:"homicide" },
+  { title:"NOT THE LAST DROP CRY", type:"Single", year:"2025", slug:"not-the-last-drop-cry" },
+  { title:"YKWID", type:"Single", year:"2025", slug:"ykwid" },
+  { title:"BOND", type:"Single", year:"2025", slug:"bond" },
+  { title:"KONSI BEEF?", type:"Single", year:"2025", slug:"konsi-beef",
+    apple:"https://music.apple.com/us/album/konsi-beef-single/1836509386" },
+  { title:"THERE WILL BE BLOOD", type:"EP", year:"2025", slug:"there-will-be-blood",
+    cover:"https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/97/dc/99/97dc99f9-3291-d632-7e51-039785951b5b/f6ea2840-c7ca-4bb5-aaa9-ec3bf0b2da1a.jpg/2000x2000bb.jpg",
+    tracks:["Dolce Gabbana feat. That Hat Boy","Moradabad Freestyle feat. Tabish Wani","Tange Chinar Pe","Scene Jump","Bars on Bars feat. UMX","YKWID"],
+    apple:"https://music.apple.com/us/album/there-will-be-blood/1822037966" },
+  { title:"WARNING", type:"Single", year:"2025", slug:"warning", first:true,
+    apple:"https://music.apple.com/us/album/warning-single/1805456567" }
+];
+
+/* ============================================================
+   BUILD DISCOGRAPHY (grouped by year, from data)
+   ============================================================ */
+(function buildDisco(){
+  var host = document.getElementById('disco');
+  if(!host) return;
+  var order = ["2026","2025"];
+  var frag = document.createDocumentFragment();
+
+  order.forEach(function(yr){
+    var items = releases.filter(function(r){ return r.year === yr; });
+    if(!items.length) return;
+    var yl = document.createElement('p');
+    yl.className = 'disco__year';
+    yl.textContent = yr;
+    frag.appendChild(yl);
+
+    var grid = document.createElement('div');
+    grid.className = 'grid';
+    items.forEach(function(r){ grid.appendChild(makeCard(r)); });
+    frag.appendChild(grid);
+  });
+  host.appendChild(frag);
+  if(FINE && !REDUCED) attachTilt();
+})();
+
+function makeCard(r){
+  var href = r.apple || SPOTIFY_ARTIST;
+  var a = document.createElement('a');
+  a.className = 'card reveal';
+  a.href = href;
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
+  a.setAttribute('aria-label', r.title + ' — ' + r.type + ' ' + r.year + (r.apple ? ' (Apple Music)' : ' (Spotify)'));
+
+  // Art / placeholder
+  var art = document.createElement('div');
+  art.className = 'card__art';
+
+  var ph = placeholderHTML(r);
+
+  if(r.cover){
+    // Guaranteed real image
+    art.appendChild(imgEl(r.cover, r.title + ' cover art', ph));
+  } else {
+    // Attempt local cover, fall back to designed title card
+    art.appendChild(imgEl('img/covers/' + r.slug + '.jpg', r.title + ' cover art', ph));
+  }
+  art.insertAdjacentHTML('beforeend', ph);
+  // Hide placeholder if a real image is present & loads (handled in imgEl)
+
+  var line = document.createElement('div');
+  line.className = 'card__line';
+
+  var info = document.createElement('div');
+  info.className = 'card__info';
+  var badges = '';
+  if(r.latest) badges += '<span class="badge">Latest</span>';
+  if(r.first) badges += '<span class="badge">First</span>';
+  var featTxt = r.feat ? ' <span style="color:var(--paper-dim);font-weight:500">'+r.feat+'</span>' : '';
+  info.innerHTML =
+    '<h4>' + r.title + featTxt + '</h4>' +
+    '<div class="m">' + badges + '<span>' + r.type + '</span><span>' + r.year + '</span>' +
+      '<span style="color:var(--crimson)">' + (r.apple ? 'Apple ↗' : 'Spotify ↗') + '</span>' +
+    '</div>' +
+    (r.tracks ? '<div class="card__tracks">'+ r.tracks.length +' Tracks · '+ r.tracks.slice(0,3).join(' / ') +'</div>' : '');
+
+  var cur = document.createElement('div');
+  cur.className = 'card__cursor';
+  cur.textContent = (r.apple ? 'Listen / Apple' : 'Listen / Spotify');
+
+  art.appendChild(cur);
+  a.appendChild(art);
+  a.appendChild(line);
+  a.appendChild(info);
+
+  // cursor label follow
+  if(FINE){
+    a.addEventListener('pointermove', function(e){
+      var rect = art.getBoundingClientRect();
+      cur.style.left = (e.clientX - rect.left) + 'px';
+      cur.style.top = (e.clientY - rect.top) + 'px';
+    });
+  }
+  return a;
+}
+
+function imgEl(src, alt, phHtml){
+  var img = new Image();
+  img.loading = 'lazy';
+  img.alt = alt;
+  img.decoding = 'async';
+  img.src = src;
+  img.style.position='relative';
+  img.style.zIndex='1';
+  // On error: leave the designed placeholder visible beneath
+  img.onerror = function(){ img.remove(); };
+  // On success: cover the placeholder
+  img.onload = function(){ img.style.zIndex='2'; };
+  return img;
+}
+
+function placeholderHTML(r){
+  return '<div class="card__ph" aria-hidden="true">' +
+    '<div class="ph-top">' + (r.latest ? 'Latest ·' : (r.first ? 'First ·' : 'Frame')) + ' ' + r.year + '</div>' +
+    '<div>' +
+      '<div class="ph-name">FS HAIMAN</div>' +
+      '<div class="ph-title">' + r.title + '</div>' +
+    '</div>' +
+    '<div class="ph-meta">' + r.type + ' — ' + r.year + '</div>' +
+  '</div>';
+}
+
+/* ============================================================
+   3D TILT (desktop, non-reduced)
+   ============================================================ */
+function attachTilt(){
+  var cards = document.querySelectorAll('.card');
+  cards.forEach(function(card){
+    var raf = null;
+    card.addEventListener('pointermove', function(e){
+      if(raf) return;
+      raf = requestAnimationFrame(function(){
+        raf = null;
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - .5;
+        var py = (e.clientY - r.top) / r.height - .5;
+        card.style.transform = 'perspective(800px) rotateY(' + (px*5).toFixed(2) + 'deg) rotateX(' + (-py*5).toFixed(2) + 'deg) translateZ(0)';
+      });
+    });
+    card.addEventListener('pointerleave', function(){
+      card.style.transform = '';
+    });
+  });
+}
+
+/* ============================================================
+   MARQUEE (data-driven, seamless)
+   ============================================================ */
+(function buildMarquee(){
+  var track = document.getElementById('marquee');
+  if(!track) return;
+  var words = ["WARNING","THERE WILL BE BLOOD","KONSI BEEF?","YKWID","TAKDA REHA","BOND","HOMICIDE","THERAPY","BOO","INTRO-SPECT","BAATEIN","J TO K"];
+  function seq(){
+    var s = document.createElement('span');
+    words.forEach(function(w,i){
+      s.appendChild(document.createTextNode(w));
+      var sep = document.createElement('i'); sep.textContent = '✦'; s.appendChild(sep);
+    });
+    return s;
+  }
+  // duplicate for seamless -50% loop
+  track.appendChild(seq());
+  track.appendChild(seq());
+})();
+
+/* ============================================================
+   INTRO SEQUENCE
+   ============================================================ */
+(function intro(){
+  var intro = document.getElementById('intro');
+  var skip = document.getElementById('skip');
+  var done = false;
+
+  function finish(){
+    if(done) return; done = true;
+    intro.classList.add('done');
+    document.body.classList.remove('intro-lock');
+    setTimeout(function(){ if(intro && intro.parentNode) intro.parentNode.removeChild(intro); }, 900);
+  }
+
+  if(REDUCED){
+    // Skip entirely
+    if(intro) intro.classList.add('done');
+    document.body.classList.remove('intro-lock');
+    return;
+  }
+
+  skip.addEventListener('click', finish);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') finish(); });
+
+  // Choreograph
+  setTimeout(function(){ intro.classList.add('settle'); }, 1400);
+  setTimeout(function(){ intro.classList.add('retract'); }, 1900);
+  setTimeout(finish, 2500);
+})();
+
+/* ============================================================
+   NAV — scroll state + active link + mobile toggle
+   ============================================================ */
+(function nav(){
+  var nav = document.getElementById('nav');
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+
+  toggle.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
+  });
+
+  // active link via IntersectionObserver
+  var map = {music:'music', twbb:'music', story:'story', listen:'listen'};
+  var anchors = links.querySelectorAll('a[href^="#"]');
+  var sections = ['music','story','listen'].map(function(id){ return document.getElementById(id); }).filter(Boolean);
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          anchors.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#'+en.target.id); });
+        }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    sections.forEach(function(s){ io.observe(s); });
+  }
+})();
+
+/* ============================================================
+   SCROLL SCRUBBER + NAV SCROLLED (rAF throttled)
+   ============================================================ */
+(function scrollFx(){
+  var scrubber = document.getElementById('scrubber');
+  var nav = document.getElementById('nav');
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? h.scrollTop / max : 0;
+    scrubber.style.transform = 'scaleX(' + p + ')';
+    nav.classList.toggle('scrolled', h.scrollTop > 60);
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; requestAnimationFrame(update); }
+  }, {passive:true});
+  update();
+})();
+
+/* ============================================================
+   REVEAL ON SCROLL
+   ============================================================ */
+(function reveals(){
+  var els = document.querySelectorAll('.reveal');
+  if(REDUCED || !('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, {rootMargin:'0px 0px -12% 0px', threshold:.08});
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+/* ============================================================
+   CURSOR SPOTLIGHT (fine pointer, non-reduced) — throttled
+   ============================================================ */
+(function spotlight(){
+  if(!FINE || REDUCED) return;
+  var root = document.documentElement;
+  var pending = false, x=0, y=0;
+  document.body.classList.add('pointer-active');
+  window.addEventListener('pointermove', function(e){
+    x = e.clientX; y = e.clientY;
+    if(!pending){
+      pending = true;
+      requestAnimationFrame(function(){
+        pending = false;
+        root.style.setProperty('--mx', x + 'px');
+        root.style.setProperty('--my', y + 'px');
+      });
+    }
+  }, {passive:true});
+})();
+
+/* ============================================================
+   PARALLAX — TWBB panel (rAF, non-reduced)
+   ============================================================ */
+(function parallax(){
+  if(REDUCED) return;
+  var bg = document.getElementById('bloodBg');
+  if(!bg) return;
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var r = bg.parentElement.getBoundingClientRect();
+    var vh = window.innerHeight;
+    if(r.bottom < 0 || r.top > vh) return;
+    var prog = (r.top + r.height/2 - vh/2) / vh; // -~1..1
+    bg.style.transform = 'scale(1.1) translateY(' + (prog * -6).toFixed(2) + '%)';
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; requestAnimationFrame(update); }
+  }, {passive:true});
+  update();
+})();
+
+/* ============================================================
+   SPOTIFY FALLBACK
+   ============================================================ */
+function spotifyFail(){
+  var wrap = document.getElementById('spotifyWrap');
+  if(wrap){
+    wrap.innerHTML = '<div class="frame__fallback">Embed unavailable — <a href="'+SPOTIFY_ARTIST+'" target="_blank" rel="noopener noreferrer">Open FS HAIMAN on Spotify</a></div>';
+  }
+}
+
+/* ============================================================
+   CHINAR LEAF PARTICLE SYSTEM (canvas)
+   ============================================================ */
+(function leaves(){
+  var canvas = document.getElementById('leaves');
+  if(!canvas || REDUCED) return;
+  var ctx = canvas.getContext('2d');
+  var W, H, DPR = Math.min(window.devicePixelRatio || 1, 2);
+  var lowPower = window.innerWidth < 760 || navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+  var COUNT = lowPower ? 12 : 25;
+  var COLORS = ['#E5372B','#9E140C','#F0A93A','#C4553B'];
+  var parts = [];
+  var running = true;
+
+  function resize(){
+    W = canvas.width = Math.floor(window.innerWidth * DPR);
+    H = canvas.height = Math.floor(window.innerHeight * DPR);
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+  }
+
+  function rnd(a,b){ return a + Math.random()*(b-a); }
+
+  function spawn(initial){
+    return {
+      x: rnd(0, W),
+      y: initial ? rnd(0, H) : rnd(-60*DPR, -10*DPR),
+      s: rnd(6, 15) * DPR,
+      vy: rnd(.4, 1.3) * DPR,
+      sway: rnd(20, 60) * DPR,
+      swaySpeed: rnd(.4, 1.1),
+      phase: rnd(0, Math.PI*2),
+      rot: rnd(0, Math.PI*2),
+      vr: rnd(-.02, .02),
+      op: rnd(.25, .7),
+      color: COLORS[(Math.random()*COLORS.length)|0]
+    };
+  }
+
+  function initParts(){
+    parts = [];
+    for(var i=0;i<COUNT;i++) parts.push(spawn(true));
+  }
+
+  // Chinar-like (maple) leaf silhouette
+  function drawLeaf(p){
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rot);
+    ctx.globalAlpha = p.op;
+    ctx.fillStyle = p.color;
+    var s = p.s;
+    ctx.beginPath();
+    ctx.moveTo(0, -s);
+    ctx.quadraticCurveTo(s*.35, -s*.4, s*.9, -s*.35);
+    ctx.quadraticCurveTo(s*.45, -s*.05, s*.7, s*.45);
+    ctx.quadraticCurveTo(s*.2, s*.2, 0, s);
+    ctx.quadraticCurveTo(-s*.2, s*.2, -s*.7, s*.45);
+    ctx.quadraticCurveTo(-s*.45, -s*.05, -s*.9, -s*.35);
+    ctx.quadraticCurveTo(-s*.35, -s*.4, 0, -s);
+    ctx.closePath();
+    ctx.fill();
+    // vein
+    ctx.globalAlpha = p.op * .5;
+    ctx.strokeStyle = 'rgba(7,8,12,.5)';
+    ctx.lineWidth = Math.max(1, s*.06);
+    ctx.beginPath(); ctx.moveTo(0,-s*.7); ctx.lineTo(0,s*.7); ctx.stroke();
+    ctx.restore();
+  }
+
+  var t = 0;
+  function frame(){
+    if(!running) return;
+    t += 0.016;
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<parts.length;i++){
+      var p = parts[i];
+      p.y += p.vy;
+      p.x += Math.sin(t*p.swaySpeed + p.phase) * .6 * DPR;
+      p.rot += p.vr;
+      var drawX = p.x + Math.sin(t*p.swaySpeed + p.phase) * (p.sway*0.02);
+      var saved = p.x; p.x = drawX;
+      drawLeaf(p);
+      p.x = saved;
+      if(p.y - p.s > H){ parts[i] = spawn(false); }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  resize();
+  initParts();
+  requestAnimationFrame(frame);
+
+  var rt;
+  window.addEventListener('resize', function(){
+    clearTimeout(rt);
+    rt = setTimeout(function(){ resize(); initParts(); }, 200);
+  });
+
+  // Pause when tab hidden (perf)
+  document.addEventListener('visibilitychange', function(){
+    if(document.hidden){ running = false; }
+    else if(!running){ running = true; requestAnimationFrame(frame); }
+  });
+})();
+</script>
+</body>
+</html>
