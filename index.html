@@ -643,6 +643,65 @@ section{position:relative}
 .reveal[data-d="3"]{transition-delay:.24s}
 
 /* ============================================================
+   VINYL — slides in near the left edge, shuffles a track
+   ============================================================ */
+.vinyl{
+  position:fixed;left:0;top:50%;z-index:100;
+  display:flex;align-items:center;gap:.9rem;
+  transform:translate(-72%,-50%);
+  transition:transform .55s cubic-bezier(.7,0,.2,1);
+  pointer-events:none;
+}
+.vinyl.show{pointer-events:auto}
+body.vinyl-near .vinyl.show,
+.vinyl.show:hover,
+.vinyl.show:focus-within,
+.vinyl.show.open,
+.vinyl.show.playing{transform:translate(-12%,-50%)}
+.vinyl__disc{
+  --sz:clamp(84px,13vw,132px);
+  width:var(--sz);height:var(--sz);border-radius:50%;flex:none;cursor:pointer;
+  border:1px solid rgba(244,239,229,.15);padding:0;
+  background:
+    radial-gradient(circle at 50% 50%,var(--crimson) 0 15%,#0c0c0f 15.5% 17%,
+      #17171c 17% 18%,#0c0c0f 18% 20%,#17171c 20% 21%,#0c0c0f 21% 24%,
+      #16161b 24% 25%,#0b0b0e 25% 30%,#161616 30% 31%,#0b0b0e 31% 37%,
+      #161616 37% 38%,#0b0b0e 38% 46%,#151515 46% 47%,#0a0a0d 47% 100%);
+  box-shadow:0 18px 50px rgba(0,0,0,.6),inset 0 0 0 1px rgba(0,0,0,.5);
+  position:relative;
+  transition:box-shadow .4s;
+}
+.vinyl__disc::after{
+  content:"";position:absolute;top:50%;left:50%;width:9%;height:9%;
+  transform:translate(-50%,-50%);border-radius:50%;
+  background:#07080C;box-shadow:0 0 0 2px var(--deep-crimson);
+}
+.vinyl__disc::before{
+  content:"";position:absolute;top:8%;left:14%;width:44%;height:30%;
+  border-radius:50%;background:linear-gradient(120deg,rgba(244,239,229,.14),transparent 70%);
+  pointer-events:none;
+}
+.vinyl.playing .vinyl__disc{animation:spin 2.4s linear infinite;box-shadow:0 18px 60px rgba(229,55,43,.35)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.vinyl__info{
+  display:flex;flex-direction:column;gap:.35rem;max-width:44vw;
+  opacity:0;transition:opacity .4s ease .1s;
+}
+body.vinyl-near .vinyl.show .vinyl__info,
+.vinyl.show:hover .vinyl__info,
+.vinyl.show:focus-within .vinyl__info,
+.vinyl.show.open .vinyl__info,
+.vinyl.show.playing .vinyl__info{opacity:1}
+.vinyl__kicker{font-family:var(--mono);font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--crimson)}
+.vinyl__now{font-family:var(--display);font-weight:900;font-size:clamp(.95rem,3.4vw,1.3rem);line-height:.95;letter-spacing:-.01em;text-transform:uppercase;color:var(--paper);max-width:15ch}
+.vinyl__open{
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--paper-dim);border-bottom:1px solid transparent;align-self:flex-start;
+  transition:color .3s,border-color .3s;
+}
+.vinyl__open:hover{color:var(--paper);border-bottom-color:var(--crimson)}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width:860px){
@@ -687,6 +746,16 @@ section{position:relative}
 
 <!-- ============ CHINAR LEAVES ============ -->
 <canvas id="leaves" aria-hidden="true"></canvas>
+
+<!-- ============ VINYL / TRACK SHUFFLE ============ -->
+<aside class="vinyl" id="vinyl" aria-label="Track shuffle player">
+  <button class="vinyl__disc" id="vinylBtn" type="button" aria-label="Shuffle and play a random track snippet" aria-pressed="false"></button>
+  <div class="vinyl__info">
+    <p class="vinyl__kicker" aria-hidden="true">Now Spinning</p>
+    <p class="vinyl__now" id="vinylNow">Shuffle</p>
+    <a class="vinyl__open" id="vinylOpen" href="https://open.spotify.com/artist/7tPPD8p96vh0tED64DVWJD" target="_blank" rel="noopener noreferrer">Open ↗</a>
+  </div>
+</aside>
 
 <!-- ============ INTRO TITLE CARD ============ -->
 <div class="intro" id="intro" role="dialog" aria-label="Intro title card">
@@ -1254,6 +1323,97 @@ function spotifyFail(){
     wrap.innerHTML = '<div class="frame__fallback">Embed unavailable — <a href="'+SPOTIFY_ARTIST+'" target="_blank" rel="noopener noreferrer">Open FS HAIMAN on Spotify</a></div>';
   }
 }
+
+/* ============================================================
+   VINYL — reveal near left edge, shuffle-play a random snippet
+   ------------------------------------------------------------
+   Audio snippets are optional local files: audio/snippets/<slug>.mp3
+   (see README). When a snippet exists the disc plays it inline (capped
+   to a short preview). When it doesn't, the "Open ↗" link always points
+   to that track on Apple/Spotify — so the feature is never broken and
+   upgrades automatically once you add snippet files.
+   Browsers block audio without a user gesture, so proximity only REVEALS
+   the vinyl; a click/tap starts the audio.
+   ============================================================ */
+(function vinyl(){
+  var el = document.getElementById('vinyl');
+  var btn = document.getElementById('vinylBtn');
+  var nowEl = document.getElementById('vinylNow');
+  var openEl = document.getElementById('vinylOpen');
+  if(!el || !btn) return;
+
+  var SNIP_SECONDS = 20;            // preview cap
+  var pool = releases.slice();      // shuffle over the whole catalogue
+  var current = null;
+  var audio = new Audio();
+  audio.preload = 'none';
+  var stopT = null;
+
+  function pick(){
+    current = pool[(Math.random()*pool.length)|0];
+    nowEl.textContent = current.title;
+    openEl.href = current.apple || SPOTIFY_ARTIST;
+    openEl.textContent = (current.apple ? 'Open on Apple ↗' : 'Open on Spotify ↗');
+  }
+
+  function stop(){
+    clearTimeout(stopT);
+    audio.pause();
+    el.classList.remove('playing');
+    btn.setAttribute('aria-pressed','false');
+  }
+
+  function play(){
+    if(!current) pick();
+    audio.src = 'audio/snippets/' + current.slug + '.mp3';
+    audio.currentTime = 0;
+    var p = audio.play();
+    if(p && p.catch){
+      p.then(function(){
+        el.classList.add('playing');
+        btn.setAttribute('aria-pressed','true');
+        clearTimeout(stopT);
+        stopT = setTimeout(stop, SNIP_SECONDS*1000);
+      }).catch(function(){
+        // No snippet file (or blocked) — guide to the real track, never break.
+        nowEl.textContent = current.title;
+        openEl.textContent = (current.apple ? 'No clip yet · Apple ↗' : 'No clip yet · Spotify ↗');
+        el.classList.remove('playing');
+        btn.setAttribute('aria-pressed','false');
+      });
+    }
+  }
+
+  audio.addEventListener('ended', stop);
+
+  // Show the vinyl once the intro is out of the way.
+  function reveal(){ el.classList.add('show'); }
+  if(REDUCED || document.body.classList.contains('intro-lock')===false){ reveal(); }
+  setTimeout(reveal, REDUCED ? 0 : 2600);
+
+  // Click / tap: shuffle a new track and toggle playback.
+  btn.addEventListener('click', function(){
+    el.classList.add('show','open');
+    if(el.classList.contains('playing')){ stop(); return; }
+    pick();
+    play();
+  });
+
+  // Desktop: reveal when the pointer nears the left edge (with hysteresis).
+  if(FINE){
+    var pending = false, nearX = 0;
+    window.addEventListener('pointermove', function(e){
+      nearX = e.clientX;
+      if(pending) return;
+      pending = true;
+      requestAnimationFrame(function(){
+        pending = false;
+        if(nearX < 130){ document.body.classList.add('vinyl-near'); }
+        else if(nearX > 240){ document.body.classList.remove('vinyl-near'); el.classList.remove('open'); }
+      });
+    }, {passive:true});
+  }
+})();
 
 /* ============================================================
    CHINAR LEAF PARTICLE SYSTEM (canvas)

@@ -17,10 +17,12 @@ Vercel or GitHub Pages.
 
 ```
 /
-├── index.html      # The entire site — inline CSS + inline JavaScript, no dependencies
-├── README.md       # This file
-└── img/
-    └── covers/     # Drop album cover images here (initially empty)
+├── index.html          # The entire site — inline CSS + inline JavaScript, no dependencies
+├── README.md           # This file
+├── img/
+│   └── covers/         # Drop album cover images here (initially empty)
+└── audio/
+    └── snippets/       # Optional track-snippet MP3s for the vinyl shuffle (initially empty)
 ```
 
 - **`index.html`** — All markup, styles and scripts live here. The only external
@@ -72,6 +74,34 @@ warning.jpg
 7. If it is absent, the designed title-card fallback appears instead.
 
 ---
+
+## Vinyl track shuffle (audio snippets)
+
+A spinning vinyl record slides in when the pointer nears the **left edge** of the
+page (on touch devices it sits as a small tappable tab). Clicking the record
+**shuffles a random track** from the catalogue and plays a short preview.
+
+Because browsers block audio until a user interacts, moving near the edge only
+*reveals* the record — a **click/tap** starts the sound. The audio files are
+optional and are **not** included (they are your music). The feature is never
+broken without them: when a snippet is missing, the record's **"Open ↗"** link
+points to that track on Apple Music (or Spotify), and it upgrades to inline
+playback automatically once you add the file.
+
+### Expected snippet filenames
+
+Drop short MP3 previews (10–30s, clips you own the rights to) into
+`audio/snippets/` using the **same slugs as the covers**:
+
+```
+intro-spect.mp3   baatein.mp3    j-to-k.mp3     takda-reha.mp3
+therapy.mp3       boo.mp3        homicide.mp3   not-the-last-drop-cry.mp3
+ykwid.mp3         bond.mp3       konsi-beef.mp3 there-will-be-blood.mp3
+warning.mp3
+```
+
+Playback is capped to a short preview in code (`SNIP_SECONDS` in `index.html`),
+so even a full-length file only plays a snippet.
 
 ## Replacing placeholders
 
