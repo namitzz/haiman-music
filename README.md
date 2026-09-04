@@ -81,12 +81,12 @@ these values — replace them only when confirmed.
 
 | Placeholder      | Where in `index.html`                              | Current value                     |
 |------------------|----------------------------------------------------|-----------------------------------|
-| Booking email    | Footer → `Booking` column (`mailto:`)              | `your@email.com`                  |
+| Booking email    | Footer → `Booking` column (`mailto:`)              | ✅ `haimenemcollab@gmail.com`     |
+| YouTube          | Footer → `Follow` + "Listen Everywhere"            | ✅ `youtube.com/@FS-HAIMAN`       |
+| `og:url`         | `<head>` Open Graph block + canonical              | ✅ `namitzz.github.io/haiman-music/` |
 | City             | Footer → `Location` column                         | `Kashmir` / `CITY — TO BE CONFIRMED` |
 | Longer bio       | Reel 03 → `The Story` section                      | `LONGER BIO — TO BE CONFIRMED`    |
 | Hero photo       | Hero `.hero__bg` + `.artist__img` (uses artwork)   | `HERO PHOTO — OPTIONAL`           |
-| YouTube links    | Not present                                        | `YOUTUBE LINKS — TO BE CONFIRMED` |
-| `og:url`         | `<head>` Open Graph block (commented out)          | Set once deployment URL is known  |
 
 **To replace the booking email:** search `index.html` for
 `PLACEHOLDER: Replace with confirmed booking email` and update the `mailto:` link.
